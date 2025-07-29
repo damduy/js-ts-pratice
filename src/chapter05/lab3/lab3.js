@@ -32,11 +32,17 @@ const product5 = {
 
 const products = [product1, product2, product3, product4, product5];
 
+console.log("Original: ", products);
+
 console.log("First product name: ",products[0].name);
 
-products[1].price = 150;
+const products2 = [product1, {
+    name: product2.name,
+    price: 150,
+    inStock: product2.inStock
+}, product3, product4, product5];
 
-console.log("List product after changing second product price: ", products);
+console.log("List product after changing second product price: ", products2);
 
 products.push(product6 = {
     name: "food",
@@ -55,17 +61,19 @@ products.forEach((item, index) => {
     console.log("Product ", index," name: ", item.name);
 })
 
+console.log("===========");
 //Create new array has only price of product
 const productPrice = products.map((item, index) => {
     return item.price;
 })
 
+console.log(productPrice);
+
+console.log("===========");
 //Create new array has product in stock only
 const inStockProduct = products.filter((item, index) => {
     return item.inStock;
 })
-
-
 
 console.log(inStockProduct);
 
